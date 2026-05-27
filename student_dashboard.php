@@ -6,7 +6,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role']!="student"){
     exit();
 }
 
-$con = mysqli_connect("localhost","root","","college_db");
+$con = mysqli_connect("localhost","root","","college_management");
 
 if(!$con){
     die("Database connection failed");
