@@ -1,12 +1,12 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-include "db_connect.php";
+include "db.php";
 $branch = $_GET["branch"];
 $year = $_GET["year"];
 
-$query = "SELECT * FROM students WHERE dept='$branch' AND year='$year'";
-$result = mysqli_query($conn, $query);
+$query = "SELECT * FROM student WHERE dept='$branch' AND year='$year'";
+$result = mysqli_query($con, $query);
 
 if(mysqli_num_rows($result) > 0){
 echo "<form method='POST' action='save_attendance.php'>";

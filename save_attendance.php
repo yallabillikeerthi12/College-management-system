@@ -1,5 +1,5 @@
 ﻿<?php
-include "db_connect.php";
+include "db.php";
 error_reporting(0);
 $branch=$_POST["branch"];
 $year=$_POST["year"];
@@ -8,17 +8,17 @@ $status=$_POST["status"];
 
 foreach($status as $student_id =>$att_status)
 {
-$name_query="SELECT * FROM students WHERE student_id='$student_id'";
-$name_result=mysqli_query($conn,$name_query);
+$name_query="SELECT * FROM student WHERE student_id='$student_id'";
+$name_result=mysqli_query($con,$name_query);
 $name_row=mysqli_fetch_assoc($name_result);
 $student_name=$name_row["name"];
 $check="SELECT * FROM attendance WHERE student_id='student_id'";
-$check_result=mysqli_query($conn,$check);
+$check_result=mysqli_query($con,$check);
 if(mysqli_num_rows($check_result)==0)
 {
 $insert="INSERT INTO attendance(student_id,student_name,dept,year,date,status) VALUES ('$student_id','$student_name','$branch','$year','$date','$att_status')";
 
-mysqli_query($conn,$insert);
+mysqli_query($con,$insert);
 }
 }
 ?>

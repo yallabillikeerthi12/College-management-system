@@ -10,11 +10,11 @@ exit();
 $error = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $username = mysqli_real_escape_string($con, $_POST['username']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
 
     // Connect to students table and verify
-    $result = mysqli_query($conn, "SELECT * FROM students WHERE username='$username'");
+    $result = mysqli_query($con, "SELECT * FROM students WHERE username='$username'");
     $row = mysqli_fetch_assoc($result);
 
     if($row) {
