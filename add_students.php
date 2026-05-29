@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include "db_connect.php";
+include "db.php";
 
 if(isset($_POST["add"])){
 $name=$_POST["name"];
@@ -10,16 +10,16 @@ $year=$_POST["year"];
 $phno=$_POST["phno"];
 
 $insert="INSERT INTO students (name,id,dept,year,phno) VALUES ('$name','$id','$dept','$year','$phno')";
-mysqli_query($conn,$insert);
+mysqli_query($con,$insert);
 
 $sync="INSERT INTO attendance (student_id,student_name,dept,year,date,status) 
 VALUES ('$id','$name','$dept','$year',CURDATE(),'Absent')";
-mysqli_query($conn,$sync);
+mysqli_query($con,$sync);
 
 echo "<script>alert('Student added successfully!')</script>";
 }
 
-$students=mysqli_query($conn,"SELECT * FROM students");
+$students=mysqli_query($con,"SELECT * FROM students");
 ?>
 
 <!DOCTYPE html>

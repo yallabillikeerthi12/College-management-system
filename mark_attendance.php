@@ -6,7 +6,7 @@ if (!isset($_SESSION["att_logged_in"])) {
     exit();
 }
 
-include "db_connect.php";
+include "db.php";
 ?>
 
 <!DOCTYPE html>
