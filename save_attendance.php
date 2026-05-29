@@ -8,7 +8,7 @@ $status=$_POST["status"];
 
 foreach($status as $student_id =>$att_status)
 {
-$name_query="SELECT * FROM students WHERE student_id='$student_id'";
+$name_query="SELECT * FROM student WHERE student_id='$student_id'";
 $name_result=mysqli_query($con,$name_query);
 $name_row=mysqli_fetch_assoc($name_result);
 $student_name=$name_row["name"];
